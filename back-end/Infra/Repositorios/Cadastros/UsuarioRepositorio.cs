@@ -25,7 +25,7 @@ namespace Infra.Repositorios.Cadastros
                                               U.Telefone,
                                               U.DataCadastro
                                          From Usuario U
-                                        Where 0 = 0");
+                                        Where 0 = 0 ");
 
                 DynamicParameters parametros = new DynamicParameters();
 
@@ -48,7 +48,7 @@ namespace Infra.Repositorios.Cadastros
                     query.Append(" And UPPER(U.Senha) = UPPER(@Senha) ");
                 }
 
-                query.Append(" Order By U.DataCadastro, U.Nome ");
+                query.Append(" Order By U.Nome ");
 
                 var listaUsuarios = conexao.Query<Usuario>(query.ToString(), parametros).ToList();
 
@@ -56,9 +56,14 @@ namespace Infra.Repositorios.Cadastros
             }
         }
 
-        public Usuario Recuperar(int codigo)
+        public Usuario RecuperarPorCodigo(int codigo)
         {
             return this.Listar(codigo, null, null).FirstOrDefault();
+        }
+
+        public Usuario RecuperarPorEmail(string email)
+        {
+            return this.Listar(null, email, null).FirstOrDefault();
         }
 
         public Usuario Inserir(string nome, string email, string senha, string telefone)
@@ -99,7 +104,7 @@ namespace Infra.Repositorios.Cadastros
             }
         }
 
-        public Usuario Atualizar(int codigo, string nome, string email, string senha, string telefone)
+        public Usuario Atualizar(int codigo, string nome, string senha, string telefone)
         {
             using (var conexao = BancoDeDados.Conexao())
             {
@@ -111,14 +116,12 @@ namespace Infra.Repositorios.Cadastros
                 {
                     string sql = @" Update Usuario
                                        Set Nome = @Nome,
-                                           Email = @Email,
                                            Senha = @Senha,
                                            Telefone = @Telefone
                                      Where Codigo = @Codigo ";
 
                     DynamicParameters parametros = new DynamicParameters();
                     parametros.Add("Nome", nome);
-                    parametros.Add("Email", email);
 
                     string senhaCriptografada = Criptografia.GerarHashMD5(senha);
                     parametros.Add("Senha", senhaCriptografada);
@@ -130,7 +133,7 @@ namespace Infra.Repositorios.Cadastros
 
                     transacao.Commit();
 
-                    return this.Listar(null, email, null).FirstOrDefault();
+                    return this.Listar(codigo, null, null).FirstOrDefault();
                 }
                 catch (Exception e)
                 {

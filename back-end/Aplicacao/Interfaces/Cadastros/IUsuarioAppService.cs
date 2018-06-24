@@ -7,7 +7,8 @@ namespace Aplicacao.Interfaces.Cadastros
     public interface IUsuarioAppService
     {
         IEnumerable<UsuarioResponse> Listar(ListarUsuarioRequest request);
-        UsuarioResponse Recuperar(int codigo);
+        UsuarioResponse RecuperarPorCodigo(int codigo);
+        UsuarioResponse RecuperarPorEmail(string email);
         UsuarioResponse Inserir(InserirUsuarioRequest request);
         UsuarioResponse Atualizar(AtualizarUsuarioRequest request);
         bool Excluir(int codigo);

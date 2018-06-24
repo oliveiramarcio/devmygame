@@ -17,11 +17,11 @@ namespace ApiDevMyGame.SwaggerExtensions
         /// <param name="apiExplorer"></param>
         public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
         {
-            swaggerDoc.paths.Add("/oauth2/tokens", new PathItem
+            swaggerDoc.paths.Add("/oauth2/autenticar", new PathItem
             {
                 post = new Operation
                 {
-                    tags = new List<string> { "Tokens" },
+                    tags = new List<string> { "Autenticações" },
                     summary = "Autenticar usuário para concessão de token de autorização (válido por 30 minutos)",
                     consumes = new List<string>
                     {

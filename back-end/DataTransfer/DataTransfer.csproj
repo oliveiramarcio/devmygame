@@ -36,9 +36,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\Cadastros\AtualizarJogoRequest.cs" />
+    <Compile Include="Requests\Cadastros\EmprestarJogoRequest.cs" />
+    <Compile Include="Requests\Cadastros\InserirJogoRequest.cs" />
     <Compile Include="Requests\Cadastros\InserirUsuarioRequest.cs" />
     <Compile Include="Requests\Cadastros\AtualizarUsuarioRequest.cs" />
+    <Compile Include="Requests\Cadastros\ListarJogoRequest.cs" />
     <Compile Include="Requests\Cadastros\ListarUsuarioRequest.cs" />
+    <Compile Include="Responses\Cadastros\JogoResponse.cs" />
     <Compile Include="Responses\Cadastros\UsuarioResponse.cs" />
   </ItemGroup>
   <ItemGroup>
