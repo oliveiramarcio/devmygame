@@ -26,7 +26,8 @@ namespace Aplicacao.Servicos.Cadastros
         public void ConfigurarMapeamento()
         {
             this.configuracoesDeMapeamento = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Usuario, UsuarioResponse>();
+                cfg.CreateMap<Usuario, UsuarioResponse>()
+                    .ForMember(a => a.DataCadastro, b => b.MapFrom(c => c.DataCadastro.ToString("dd/MM/yyyy hh:mm:ss")));
             });
 
             this.configuracoesDeMapeamento.AssertConfigurationIsValid();
@@ -34,6 +35,11 @@ namespace Aplicacao.Servicos.Cadastros
 
         public IEnumerable<UsuarioResponse> Listar(ListarUsuarioRequest request)
         {
+            if (request == null)
+            {
+                request = new ListarUsuarioRequest();
+            }
+
             if ((request != null) && (request.Codigo != null) && (request.Codigo <= 0))
             {
                 throw new ParametroInvalidoExcecao("Favor informar um código de usuário válido");
@@ -44,20 +50,37 @@ namespace Aplicacao.Servicos.Cadastros
             return this.configuracoesDeMapeamento.CreateMapper().Map<IEnumerable<Usuario>, IEnumerable<UsuarioResponse>>(listaUsuarios);
         }
 
-        public UsuarioResponse Recuperar(int codigo)
+        public UsuarioResponse RecuperarPorCodigo(int codigo)
         {
             if (codigo <= 0)
             {
                 throw new ParametroInvalidoExcecao("Favor informar um código de usuário válido");
             }
 
-            Usuario usuario = this.usuarioRepositorio.Recuperar(codigo);
+            Usuario usuario = this.usuarioRepositorio.RecuperarPorCodigo(codigo);
+
+            return this.configuracoesDeMapeamento.CreateMapper().Map<Usuario, UsuarioResponse>(usuario);
+        }
+
+        public UsuarioResponse RecuperarPorEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ParametroInvalidoExcecao("Favor informar um email válido");
+            }
+
+            Usuario usuario = this.usuarioRepositorio.RecuperarPorEmail(email);
 
             return this.configuracoesDeMapeamento.CreateMapper().Map<Usuario, UsuarioResponse>(usuario);
         }
 
         public UsuarioResponse Inserir(InserirUsuarioRequest request)
         {
+            if (request == null)
+            {
+                throw new RequestInvalidoExcecao();
+            }
+
             if (string.IsNullOrWhiteSpace(request.Nome))
             {
                 throw new ParametroInvalidoExcecao("Favor informar um nome");
@@ -76,6 +99,11 @@ namespace Aplicacao.Servicos.Cadastros
             if (string.IsNullOrWhiteSpace(request.Telefone))
             {
                 throw new ParametroInvalidoExcecao("Favor informar um telefone");
+            }
+
+            if (this.usuarioRepositorio.RecuperarPorEmail(request.Email) != null)
+            {
+                throw new RegraDeNegocioExcecao("O e-mail informado já está cadastrado no D3vMyGame!");
             }
 
             Usuario novoUsuario = this.usuarioRepositorio.Inserir(request.Nome, request.Email, request.Senha, request.Telefone);
@@ -85,14 +113,14 @@ namespace Aplicacao.Servicos.Cadastros
 
         public UsuarioResponse Atualizar(AtualizarUsuarioRequest request)
         {
+            if (request == null)
+            {
+                throw new RequestInvalidoExcecao();
+            }
+
             if (string.IsNullOrWhiteSpace(request.Nome))
             {
                 throw new ParametroInvalidoExcecao("Favor informar um nome");
-            }
-
-            if (string.IsNullOrWhiteSpace(request.Email))
-            {
-                throw new ParametroInvalidoExcecao("Favor informar um e-mail");
             }
 
             if (string.IsNullOrWhiteSpace(request.Senha))
@@ -105,9 +133,18 @@ namespace Aplicacao.Servicos.Cadastros
                 throw new ParametroInvalidoExcecao("Favor informar um telefone");
             }
 
-            Usuario usuarioAtualizado = this.usuarioRepositorio.Atualizar(request.Codigo, request.Nome, request.Email, request.Senha, request.Telefone);
+            Usuario usuario = this.usuarioRepositorio.RecuperarPorCodigo(request.Codigo);
 
-            return this.configuracoesDeMapeamento.CreateMapper().Map<Usuario, UsuarioResponse>(usuarioAtualizado);
+            if (usuario != null)
+            {
+                Usuario usuarioAtualizado = this.usuarioRepositorio.Atualizar(request.Codigo, request.Nome, request.Senha, request.Telefone);
+
+                return this.configuracoesDeMapeamento.CreateMapper().Map<Usuario, UsuarioResponse>(usuarioAtualizado);
+            }
+            else
+            {
+                throw new ParametroInvalidoExcecao("O usuário informado não existe.");
+            }
         }
 
         public bool Excluir(int codigo)
@@ -117,7 +154,16 @@ namespace Aplicacao.Servicos.Cadastros
                 throw new ParametroInvalidoExcecao("Favor informar um código de usuário válido");
             }
 
-            return this.usuarioRepositorio.Excluir(codigo);
+            Usuario usuario = this.usuarioRepositorio.RecuperarPorCodigo(codigo);
+
+            bool retorno = false;
+
+            if (usuario != null)
+            {
+                retorno = this.usuarioRepositorio.Excluir(codigo);
+            }
+
+            return retorno;
         }
 
         public bool AutenticarUsuario(string email, string senha)

@@ -45,6 +45,7 @@
     <Compile Include="Classes\Constantes.cs" />
     <Compile Include="Enums\CreditoDebitoEnum.cs" />
     <Compile Include="Enums\NaoSimEnum.cs" />
+    <Compile Include="Excecoes\RegraDeNegocioExcecao.cs" />
     <Compile Include="Excecoes\ParametroInvalidoExcecao.cs" />
     <Compile Include="Excecoes\RequestInvalidoExcecao.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />

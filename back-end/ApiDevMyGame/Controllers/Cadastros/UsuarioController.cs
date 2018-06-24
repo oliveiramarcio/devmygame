@@ -49,7 +49,7 @@ namespace ApiDevMyGame.Controllers.Cadastros
         }
 
         /// <summary>
-        /// Recupera um usuário
+        /// Recupera um usuário por código
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
@@ -57,9 +57,30 @@ namespace ApiDevMyGame.Controllers.Cadastros
         [Authorize]
         [Route("usuarios/{codigo:int}")]
         [ResponseType(typeof(UsuarioResponse))]
-        public IHttpActionResult Recuperar([FromUri] int codigo)
+        public IHttpActionResult RecuperarPorCodigo([FromUri] int codigo)
         {
-            var response = this.usuarioAppService.Recuperar(codigo);
+            var response = this.usuarioAppService.RecuperarPorCodigo(codigo);
+
+            if (response == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Recupera um usuário por e-mail
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        [Route("usuarios/recuperar-por-email")]
+        [ResponseType(typeof(UsuarioResponse))]
+        public IHttpActionResult RecuperarPorEmail([FromUri] string email)
+        {
+            var response = this.usuarioAppService.RecuperarPorEmail(email);
 
             if (response == null)
             {
