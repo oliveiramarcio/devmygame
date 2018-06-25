@@ -11,9 +11,9 @@
 
 # Ferramentas Utilizadas:
 
-* [**Visual Studio 2017**] (https://visualstudio.microsoft.com/)
-* [**Visual Code**] (https://code.visualstudio.com/)
-** [**IIS**] (https://www.iis.net/)
+* [**Visual Studio 2017**](https://visualstudio.microsoft.com/) ()
+* **Visual Code** (https://code.visualstudio.com/)
+* **IIS** (https://www.iis.net/)
 
 # Tecnologias Utilizadas - Front-End:
 
