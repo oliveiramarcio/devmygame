@@ -45,6 +45,8 @@ O script de criação do banco de dados do aplicativo está no [**arquivo script
 
 * [**SQL Server 2017**](https://www.microsoft.com/pt-br/sql-server/sql-server-2017)
 * [**Amazon RDS**](https://aws.amazon.com/pt/rds/)
+* [**.NET Framework**](https://www.microsoft.com/net/)
+* [**C#**](https://pt.wikipedia.org/wiki/C_Sharp)
 * [**ASP.NET Web Api**](https://docs.microsoft.com/pt-br/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [**Swagger**](https://swagger.io)
 * [**Dapper**](https://github.com/StackExchange/Dapper)
