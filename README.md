@@ -2,7 +2,7 @@
 
 *Aplicativo para Gerenciamento de Empréstimo de Jogos*
 
-*Desenvolvido por Marcio Oliveira para o desafio S2IT*
+*Desenvolvido por Marcio Oliveira para o Desafio S2IT*
 
 # Conceitos Utilizados
 
