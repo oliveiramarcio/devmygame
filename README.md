@@ -20,7 +20,7 @@ O script de criação do banco de dados do aplicativo está no arquivo [**script
 
 * [**MVC - Model-View-Controller**](https://pt.wikipedia.org/wiki/MVC)
 * [**DDD - Domain-Driven Design**](https://en.wikipedia.org/wiki/Domain-driven_design)
-* [**DIP - Princípio da Inversão de Dependência**](https://robsoncastilho.com.br/2013/05/01/principios-solid-principio-da-inversao-de-dependencia-dip/)
+* [**DIP - Princípio da Inversão de Dependência**](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 
 # Ferramentas Utilizadas
 
