@@ -21,13 +21,13 @@ O script de criação do banco de dados do aplicativo está no [**arquivo script
 * [**MVC - Model-View-Controller**](https://pt.wikipedia.org/wiki/MVC)
 * [**DDD - Domain-Driven Design**](https://en.wikipedia.org/wiki/Domain-driven_design)
 
-# Ferramentas Utilizadas:
+# Ferramentas Utilizadas
 
 * [**Visual Studio 2017**](https://visualstudio.microsoft.com/) 
 * [**Visual Code**](https://code.visualstudio.com/)
 * [**IIS**](https://www.iis.net/)
 
-# Tecnologias Utilizadas - Front-End:
+# Tecnologias Front-End
 
 * [**HTML5**](https://www.w3schools.com/html/html5_intro.asp)
 * [**CSS3**](https://pt.wikipedia.org/wiki/CSS3)
@@ -41,7 +41,7 @@ O script de criação do banco de dados do aplicativo está no [**arquivo script
 * [**BlockUI**](http://malsup.com/jquery/block/)
 * [**Popper.JS - Requerido pelo Bootstrap**](https://popper.js.org/)
 
-# Tecnologias Utilizadas - Back-End:
+# Tecnologias Back-End
 
 * [**SQL Server 2017**](https://www.microsoft.com/pt-br/sql-server/sql-server-2017)
 * [**Amazon RDS**](https://aws.amazon.com/pt/rds/)
