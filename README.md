@@ -25,7 +25,7 @@
 * [**Font Awesome**](https://fontawesome.com/)
 * [**jQuery**](https://jquery.com/)
 * [**SPApp - Single Page Application Micro Framework para MVC com jQuery**](https://github.com/c-smile/spapp)
-* [**SweetAlert for Bootstrap**] (https://lipis.github.io/bootstrap-sweetalert/)
+* [**SweetAlert for Bootstrap**](https://lipis.github.io/bootstrap-sweetalert/)
 * [**BlockUI**](http://malsup.com/jquery/block/)
 * [**Popper.JS - Requerido pelo Bootstrap**](https://popper.js.org/)
 
@@ -35,7 +35,7 @@
 * [**Amazon RDS**](https://aws.amazon.com/pt/rds/)
 * [**ASP.NET Web Api**](https://docs.microsoft.com/pt-br/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [**Swagger**](https://swagger.io)
-* [**Dapper**]https://github.com/StackExchange/Dapper)
+* [**Dapper**](https://github.com/StackExchange/Dapper)
 * [**JSON Web Tokens**](https://jwt.io/)
 * [**AutoMapper**](https://automapper.org/)
 * [**Ninject**](https://github.com/ninject/Ninject)
