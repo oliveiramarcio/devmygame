@@ -1,8 +1,18 @@
-# D3vMyGame
-
-*Aplicativo para Gerenciamento de Empréstimo de Jogos*
+# D3vMyGame - Aplicativo para Gerenciamento de Empréstimo de Jogos
 
 *Desenvolvido por Marcio Oliveira para o Desafio S2IT*
+
+Desenvolvido em formato de aplicação web, o aplicativo está funcional e permite cadastro de usuários, cadastro de jogos e empréstimo e devolução de jogos.
+
+Porém, precisa de implementação de recursos adicionais, tais como:
+
+* Responsividade para dispositivos móveis e telas menores
+* Cadastro e edição de usuários após estar logado no aplicativo
+* Recuperação de senha
+* Criação de amizade entre os usuários do aplicativo
+* Testes unitários
+
+O script de criação do banco de dados do aplicativo está no [**arquivo script_devmygame.sql**](https://github.com/oliveiramarcio/devmygame/blob/master/script_devmygame.sql) e o aplicativo pode ser testado com o usuário [**deoliveira.marcioroberto@gmail.com**] com senha [**teste**].
 
 # Conceitos Utilizados
 
