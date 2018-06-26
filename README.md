@@ -31,6 +31,7 @@ O script de criação do banco de dados do aplicativo está no arquivo [**script
 # Tecnologias Front-End
 
 * [**HTML5**](https://www.w3schools.com/html/html5_intro.asp)
+* [**Web Storage**](https://www.w3schools.com/html/html5_webstorage.asp)
 * [**CSS3**](https://pt.wikipedia.org/wiki/CSS3)
 * [**JavaScript**](https://www.javascript.com/)
 * [**Bootstrap**](https://getbootstrap.com/)
